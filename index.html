@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Hamid | Network & Cloud Engineer</title>
+    
+    <!-- Google Fonts: Poppins (Heading), Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Phosphor Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4f46e5', // indigo-600
+                        primaryHover: '#4338ca', // indigo-700
+                        bgMain: '#f8fafc', // slate-50
+                        bgCard: '#ffffff', // white
+                        textMain: '#0f172a', // slate-900
+                        textMuted: '#64748b', // slate-500
+                        borderLight: '#e2e8f0', // slate-200
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #475569; /* slate-600 */
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navigation (Light) */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #4f46e5, #0ea5e9); /* indigo to sky blue */
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="font-heading text-xl font-bold tracking-tight text-textMain flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-lg bg-indigo-100 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <span>Ryan Hamid Muhammad<span class="text-primary">.</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center font-medium text-sm text-textMuted">
+                <a href="#projects" class="hover:text-primary transition-colors duration-300">Karya Unggulan</a>
+                <a href="#about" class="hover:text-primary transition-colors duration-300">Tentang & Skills</a>
+                <a href="#contact" class="hover:text-primary transition-colors duration-300">Kontak & CV</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-textMain hover:text-primary focus:outline-none transition-colors">
+                <i class="ph ph-list text-3xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-borderLight flex-col items-center py-4 space-y-4 text-base font-medium z-40">
+            <a href="#projects" class="mobile-link text-textMuted hover:text-primary w-full text-center py-2">Karya Unggulan</a>
+            <a href="#about" class="mobile-link text-textMuted hover:text-primary w-full text-center py-2">Tentang & Skills</a>
+            <a href="#contact" class="mobile-link text-textMuted hover:text-primary w-full text-center py-2">Kontak & CV</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-24 pb-12 px-6 relative overflow-hidden bg-slate-50">
+        <!-- Minimalist Background Decoration -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-[100px] opacity-60 pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-100 rounded-full blur-[100px] opacity-60 pointer-events-none translate-y-1/3 -translate-x-1/4"></div>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Hero Text -->
+            <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-primary text-sm font-medium mb-6 reveal">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Tersedia untuk peluang baru
+                </div>
+                
+                <h1 class="font-heading text-4xl md:text-6xl font-bold text-textMain leading-tight mb-4 reveal delay-100">
+                    Halo, Saya <br/>
+                    <span class="text-gradient">Ryan Hamid Muhammad.</span>
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl text-slate-700 font-medium mb-6 reveal delay-200">
+                    Network & Cloud Engineer
+                </h2>
+                
+                <p class="text-textMuted text-base md:text-lg mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0 reveal delay-200">
+                    Menggabungkan infrastruktur jaringan, komputasi awan, dan kecerdasan buatan untuk membangun sistem digital yang tangguh, cerdas, dan efisien.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 reveal delay-300">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-primary text-white font-medium rounded-xl shadow-lg shadow-indigo-200 hover:bg-primaryHover hover:-translate-y-1 transition-all duration-300 text-center flex items-center justify-center gap-2 group">
+                        Lihat Karya Saya <i class="ph-bold ph-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual / Profile Image -->
+            <div class="lg:col-span-5 flex justify-center order-1 lg:order-2 reveal relative">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px]">
+                    <!-- Decorative shapes -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 to-sky-100 rounded-[2rem] transform rotate-6 scale-95 transition-transform duration-700 hover:rotate-12"></div>
+                    <div class="absolute inset-0 bg-white border border-slate-100 rounded-[2rem] transform -rotate-3 scale-100 shadow-xl overflow-hidden z-10">
+                        <!-- Foto Profil: Ganti dengan foto Anda yang sebenarnya -->
+                        <img src="WhatsApp Image 2026-10-27 at 19.55.25.jpeg" alt="Ryan Hamid" onerror="this.src='https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white px-5 py-3 rounded-xl border border-slate-100 shadow-xl z-20 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Lulusan PENS</p>
+                            <p class="text-sm font-bold text-slate-800">S.Tr TRI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-24 bg-white relative border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center md:text-left mb-16 reveal">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-textMain mb-4">Karya Unggulan</h2>
+                <p class="text-textMuted max-w-2xl">Beberapa proyek komprehensif yang telah saya kerjakan, dari riset kecerdasan buatan untuk keamanan siber hingga implementasi infrastruktur jaringan cerdas.</p>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 (Tugas Akhir) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-borderLight group hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-300 reveal flex flex-col h-full hover:-translate-y-2 cursor-pointer">
+                    <div class="relative h-56 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity AI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm border border-indigo-50">
+                            Tugas Akhir
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-50 text-indigo-700 text-xs px-2.5 py-1 rounded-full font-medium">Cybersecurity</span>
+                            <span class="bg-sky-50 text-sky-700 text-xs px-2.5 py-1 rounded-full font-medium">AI / ML</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-full font-medium">Python</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-textMain mb-3 group-hover:text-primary transition-colors">AI-Based Cyber Attack Detection Framework for IoV</h3>
+                        <p class="text-textMuted text-sm mb-6 flex-grow leading-relaxed">
+                            Merancang framework berbasis Machine Learning untuk mendeteksi anomali dan serangan siber secara akurat pada lingkungan Internet of Vehicles (IoV), guna memastikan keamanan komunikasi antar kendaraan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Scanner Absensi) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-borderLight group hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-300 reveal delay-100 flex flex-col h-full hover:-translate-y-2 cursor-pointer">
+                    <div class="relative h-56 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Server Infrastructure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-emerald-600 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm border border-emerald-50">
+                            Pengalaman Kerja
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-full font-medium">Networking</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-full font-medium">System Admin</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-textMain mb-3 group-hover:text-primary transition-colors">Sistem Scan Absensi Karyawan Terintegrasi</h3>
+                        <p class="text-textMuted text-sm mb-6 flex-grow leading-relaxed">
+                            Membantu pengembangan dan instalasi perangkat scanner absensi yang terhubung ke jaringan lokal perusahaan. Memastikan sinkronisasi basis data pekerja secara real-time dan minim latensi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Gerbang Wireless) -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-borderLight group hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-300 reveal delay-200 flex flex-col h-full hover:-translate-y-2 cursor-pointer">
+                    <div class="relative h-56 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Hardware / IoT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-emerald-600 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm border border-emerald-50">
+                            Pengalaman Kerja
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-50 text-orange-700 text-xs px-2.5 py-1 rounded-full font-medium">IoT</span>
+                            <span class="bg-teal-50 text-teal-700 text-xs px-2.5 py-1 rounded-full font-medium">Hardware</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-full font-medium">Wireless</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-textMain mb-3 group-hover:text-primary transition-colors">Integrasi Infrastruktur Gerbang Wireless</h3>
+                        <p class="text-textMuted text-sm mb-6 flex-grow leading-relaxed">
+                            Melakukan perancangan dan setup gerbang pintar nirkabel di lingkungan fasilitas. Menggabungkan mikrokontroler dengan jaringan lokal agar gerbang dapat dikontrol secara nirkabel secara presisi.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Skills Section -->
+    <section id="about" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            <!-- About Me -->
+            <div class="reveal">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-textMain mb-6">Tentang Saya</h2>
+                <div class="prose prose-slate text-textMuted leading-relaxed space-y-4">
+                    <p>
+                        Saya adalah lulusan <strong>Sarjana Terapan (S.Tr) Teknologi Rekayasa Internet</strong> dari Politeknik Elektronika Negeri Surabaya (PENS). Saya memiliki minat yang kuat dalam pengembangan teknologi infrastruktur, komputasi awan (Cloud), dan integrasi Kecerdasan Buatan (AI) ke dalam sistem operasional IT.
+                    </p>
+                    <p>
+                        Dengan pemahaman teoretis yang kuat dan keterampilan praktis terapan, saya terbiasa mengelola sistem operasi Linux, merancang topologi jaringan nirkabel & IoT, hingga melatih model Machine Learning untuk solusi deteksi keamanan siber.
+                    </p>
+                    <p>
+                        Sebagai seorang yang <em>problem-oriented</em>, saya berdedikasi tinggi, selalu antusias untuk mempelajari teknologi baru, dan senang berkolaborasi di dalam tim untuk mencapai target atau proyek organisasi secara efisien.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tech Stack & Skills -->
+            <div class="reveal delay-100">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-textMain mb-6">Tech Stack & Keahlian</h2>
+                
+                <div class="space-y-6">
+                    <!-- Category: AI & Data -->
+                    <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-brain text-primary"></i> AI & Data
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-indigo-50 rounded-lg text-sm font-medium text-indigo-700">Machine Learning</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 rounded-lg text-sm font-medium text-indigo-700">Deep Learning</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 rounded-lg text-sm font-medium text-indigo-700">TensorFlow</span>
+                            <span class="px-3 py-1.5 bg-indigo-50 rounded-lg text-sm font-medium text-indigo-700">Scikit-Learn</span>
+                        </div>
+                    </div>
+
+                    <!-- Category: Cloud & SysAdmin -->
+                    <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-server text-sky-500"></i> Cloud & System Admin
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-sky-50 rounded-lg text-sm font-medium text-sky-700">Linux Administration</span>
+                            <span class="px-3 py-1.5 bg-sky-50 rounded-lg text-sm font-medium text-sky-700">Docker</span>
+                            <span class="px-3 py-1.5 bg-sky-50 rounded-lg text-sm font-medium text-sky-700">AWS / GCP</span>
+                            <span class="px-3 py-1.5 bg-sky-50 rounded-lg text-sm font-medium text-sky-700">Nginx / Apache</span>
+                        </div>
+                    </div>
+
+                    <!-- Category: Networking & IoT -->
+                    <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-sm font-bold text-slate-800 mb-3 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-wifi text-emerald-500"></i> Networking & IoT
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-emerald-50 rounded-lg text-sm font-medium text-emerald-700">Network Topology</span>
+                            <span class="px-3 py-1.5 bg-emerald-50 rounded-lg text-sm font-medium text-emerald-700">Mikrokontroler</span>
+                            <span class="px-3 py-1.5 bg-emerald-50 rounded-lg text-sm font-medium text-emerald-700">MQTT</span>
+                            <span class="px-3 py-1.5 bg-emerald-50 rounded-lg text-sm font-medium text-emerald-700">Hardware Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <section id="contact" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            
+            <div class="reveal mb-10">
+                <h2 class="font-heading text-3xl font-bold text-textMain mb-4">Mari Terhubung!</h2>
+                <p class="text-textMuted">Tertarik untuk mendiskusikan peluang kerja, proyek IT, atau sekadar bertukar wawasan? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16 reveal delay-100">
+                <a href="mailto:ryanhamid527@gmail.com" class="flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full font-medium transition-colors">
+                    <i class="ph-fill ph-envelope-simple text-xl text-red-500"></i> Email Saya
+                </a>
+                <a href="https://www.linkedin.com/in/ryan-hamid-b47aa5285" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full font-medium transition-colors">
+                    <i class="fa-brands fa-linkedin text-xl text-blue-600"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Amiyeee" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-full font-medium transition-colors">
+                    <i class="fa-brands fa-github text-xl text-slate-900"></i> GitHub
+                </a>
+            </div>
+
+            <!-- Bagian Scan QR Code CV -->
+            <div class="max-w-sm mx-auto bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm reveal delay-200">
+                <h3 class="font-heading text-lg font-bold text-slate-800 mb-2">Pindai Untuk CV</h3>
+                <p class="text-sm text-slate-500 mb-6">Arahkan kamera smartphone Anda ke QR code di bawah ini untuk melihat/mengunduh CV lengkap saya.</p>
+                
+                <!-- KOTAK GAMBAR QR CODE -->
+                <div class="flex justify-center mb-6">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm inline-block">
+                        
+                        <!-- 
+                        ========================================================================
+                        BAGIAN PENTING: GANTI 'src' PADA TAG <img ...> DI BAWAH INI DENGAN 
+                        GAMBAR QR CODE ANDA SENDIRI
+                        ======================================================================== 
+                        -->
+                        <img 
+                            src="https_amiyeee_github_io_CV-Online_.png" 
+                            alt="Scan untuk melihat CV" 
+                            class="w-40 h-40 object-contain hover:scale-105 transition-transform duration-300"
+                        >
+                        <!-- =================================================================== -->
+
+                    </div>
+                </div>
+                
+                <p class="text-xs text-slate-400 font-medium tracking-wide uppercase">Scan Me</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Bottom -->
+    <footer class="bg-slate-50 py-6 text-center border-t border-slate-200">
+        <p class="text-slate-500 text-sm">
+            &copy; <span id="year"></span> Ryan Hamid Muhammad. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                });
+            });
+
+            // 2. Set Current Year in Footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // 3. Scroll Reveal Animation (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+            
+        });
+    </script>
+</body>
+</html>
